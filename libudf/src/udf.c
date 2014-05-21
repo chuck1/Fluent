@@ -3,6 +3,8 @@
 
 #include "udf.h"
 
+#include "reports.h"
+
 #define PI 3.1415
 
 /** return peak location based on mode in char string */
@@ -46,6 +48,8 @@ float vel3(float x, float a, float y, float b, float m, float n, float um) {
 	return ( um * ((m+1)/m) * ((n+1)/n) * (1 - pow(x/a,m)) * (1 - pow(y/b,n)) );
 
 }
+
+
 DEFINE_PROFILE( velocity, t, equation )
 {
 	/* this function creates a 1-D parabolic profile on a 2-D rectangular face

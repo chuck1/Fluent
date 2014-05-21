@@ -18,26 +18,20 @@ DIR= $(FLUENT_ARCH)/[23]*
 SRC= ../../src/*.[ch] ../../src/makefile
 
 all:
-	for d in $(DIR); do \
+	@for d in $(DIR); do \
 	  ( \
 	    cd $$d; \
-	    for f in $(SRC); do \
-	      if [ ! -f `basename $$f` ]; then \
-	        echo "# linking to" $$f "in" $$d; \
-	        ln -s $$f .; \
-	      fi; \
-	    done; \
 	    echo ""; \
 	    echo "# building library in" $$d; \
 	    if [ "$(USE_GCC64)" = "1" ]; then \
 		echo "# using gcc64"; \
-		make ARCHC=gcc64 -k>makelog 2>&1; \
+		make --no-print-directory ARCHC=gcc64 -k>makelog 2>&1; \
 	    else \
 		if [ "$(USE_GCC)" = "1" ]; then \
 			echo "# using gcc"; \
 			make ARCHC=gcc -k>makelog 2>&1; \
 		else \
-			make -k>makelog 2>&1; \
+			make --no-print-directory -k>makelog 2>&1; \
 		fi; \
 	    fi;\
 	    cat makelog; \

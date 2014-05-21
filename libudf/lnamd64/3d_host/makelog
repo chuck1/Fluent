@@ -1,21 +1,2 @@
-make[1]: Entering directory `/nfs/stak/students/r/rymalc/Documents/Programming/C/C_Fluent/libudf/lnamd64/3d_host'
-make[1]: Circular udf_names.c <- udf_names.c dependency dropped.
-make[2]: Entering directory `/nfs/stak/students/r/rymalc/Documents/Programming/C/C_Fluent/libudf/lnamd64/3d_host'
 make libudf.so "CFLAGS=-D_lnamd64 -D_GNU_SOURCE -fpic -shared -ansi -Wall -O -DPTR_RESTRICT=	" "LDFLAGS=-shared -lm"
-make[3]: Entering directory `/nfs/stak/students/r/rymalc/Documents/Programming/C/C_Fluent/libudf/lnamd64/3d_host'
-make[3]: Circular udf_names.c <- udf_names.c dependency dropped.
-# Linking libudf.so because of makefile user.udf udf_names.c udf_names.o udf.o
-ld -shared -lm udf_names.o ./udf.o ./udf_names.o  -o libudf.so
-./udf_names.o: In function `UDF_Inquire_Release':
-udf_names.c:(.text+0x0): multiple definition of `UDF_Inquire_Release'
-udf_names.o:udf_names.c:(.text+0x0): first defined here
-./udf_names.o:(.data.rel+0x0): multiple definition of `udf_data'
-udf_names.o:(.data.rel+0x0): first defined here
-./udf_names.o:(.data+0x0): multiple definition of `n_udf_data'
-udf_names.o:(.data+0x0): first defined here
-make[3]: *** [libudf.so] Error 1
-make[3]: Leaving directory `/nfs/stak/students/r/rymalc/Documents/Programming/C/C_Fluent/libudf/lnamd64/3d_host'
-make[2]: *** [lnamd64] Error 2
-make[2]: Leaving directory `/nfs/stak/students/r/rymalc/Documents/Programming/C/C_Fluent/libudf/lnamd64/3d_host'
-make[1]: *** [default] Error 2
-make[1]: Leaving directory `/nfs/stak/students/r/rymalc/Documents/Programming/C/C_Fluent/libudf/lnamd64/3d_host'
+make[3]: `libudf.so' is up to date.
