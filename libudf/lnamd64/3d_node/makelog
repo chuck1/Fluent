@@ -1,8 +1,8 @@
-make[1]: Entering directory `/nfs/stak/students/r/rymalc/Documents/Programming/C/Fluent/libudf/lnamd64/3d_node'
-make[2]: Entering directory `/nfs/stak/students/r/rymalc/Documents/Programming/C/Fluent/libudf/lnamd64/3d_node'
+make[1]: Entering directory `/nfs/stak/students/r/rymalc/Documents/Programming/C/C_Fluent/libudf/lnamd64/3d_node'
+make[2]: Entering directory `/nfs/stak/students/r/rymalc/Documents/Programming/C/C_Fluent/libudf/lnamd64/3d_node'
 make libudf.so "CFLAGS=-D_lnamd64 -D_GNU_SOURCE -fpic -shared -ansi -Wall -O -DPTR_RESTRICT=	" "LDFLAGS=-shared -lm"
-make[3]: Entering directory `/nfs/stak/students/r/rymalc/Documents/Programming/C/Fluent/libudf/lnamd64/3d_node'
+make[3]: Entering directory `/nfs/stak/students/r/rymalc/Documents/Programming/C/C_Fluent/libudf/lnamd64/3d_node'
 make[3]: `libudf.so' is up to date.
-make[3]: Leaving directory `/nfs/stak/students/r/rymalc/Documents/Programming/C/Fluent/libudf/lnamd64/3d_node'
-make[2]: Leaving directory `/nfs/stak/students/r/rymalc/Documents/Programming/C/Fluent/libudf/lnamd64/3d_node'
-make[1]: Leaving directory `/nfs/stak/students/r/rymalc/Documents/Programming/C/Fluent/libudf/lnamd64/3d_node'
+make[3]: Leaving directory `/nfs/stak/students/r/rymalc/Documents/Programming/C/C_Fluent/libudf/lnamd64/3d_node'
+make[2]: Leaving directory `/nfs/stak/students/r/rymalc/Documents/Programming/C/C_Fluent/libudf/lnamd64/3d_node'
+make[1]: Leaving directory `/nfs/stak/students/r/rymalc/Documents/Programming/C/C_Fluent/libudf/lnamd64/3d_node'

@@ -1,4 +1,4 @@
-CSOURCES= udf.c
+CSOURCES= $(shell file src/ -name '*.c')
 HSOURCES=
 FLUENT_INC=/usr/local/apps64/ansys_inc/v145/fluent
 GPU_SUPPORT=off

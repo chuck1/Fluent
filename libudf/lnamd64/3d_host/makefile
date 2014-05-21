@@ -90,7 +90,7 @@ endif
 .c.o:
 	@echo "# Compiling $@ because of $?"
 	@rm -f $*.o
-	$(CC) $(CFLAGS) $(INCLUDES) -c $*.c
+	$(CC) $(CFLAGS) $(INCLUDES) -c $*.c -o $@
 
 default: $(UDFDATA)
 	@$(MAKE) $(ARCHC)	
