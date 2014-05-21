@@ -5,9 +5,11 @@
 #include "dpm.h"
 extern DEFINE_PROFILE( velocity, t, equation );
 extern DEFINE_PROFILE( solar, t, equation );
+extern DEFINE_PROFILE(heat_xfer_coeff1, t, equation);
 UDF_Data udf_data[] = {
 {"velocity", (void (*)())velocity, UDF_TYPE_PROFILE},
 {"solar", (void (*)())solar, UDF_TYPE_PROFILE},
+{"heat_xfer_coeff1", (void (*)())heat_xfer_coeff1, UDF_TYPE_PROFILE},
 };
 int n_udf_data = sizeof(udf_data)/sizeof(UDF_Data);
 #include "version.h"
