@@ -111,31 +111,6 @@ DEFINE_PROFILE( velocity, t, equation )
 	end_f_loop( f, t )
 }
 
-float integrate( float x0, float x1, float y0, float y1, float a, float b, float c )
-{
-	float S = 
-		(a / 3.0*( pow(x1,3) - pow(x0,3) )*( y1 - y0 )) +
-		(b / 3.0*( x1 - x0 )*( pow(y1,3) - pow(y0,3) )) + 
-		(c * ( x1 - x0 ) * ( y1 - y0 ));
-	return S;
-}
-float scale( float S, float x0, float x1, float y0, float y1, float a, float b )
-{
-	float S0 = integrate(x0,x1,y0,y1,a,b,0);
-
-	printf("S0 = %e\n",S0);
-
-	float c = ( S - S0 ) / ( x1 - x0 ) / ( y1 - y0 );
-
-	return c;
-}
-float parab_2d_coeff_from_meas( float peak, float edge, float edge_x )
-{
-	float a = ( edge - peak ) / edge_x / edge_x;
-
-	return a;
-}
-
 DEFINE_PROFILE( solar, t, equation )
 {
 	float v[3];
