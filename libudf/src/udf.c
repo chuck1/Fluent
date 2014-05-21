@@ -4,6 +4,8 @@
 #include "udf.h"
 
 #define PI 3.1415
+
+/** return peak location based on mode in char string */
 float peak(float x0, float x1, char* mode) {
 
 	if(strcmp(mode, "edge") == 0) {
@@ -15,6 +17,7 @@ float peak(float x0, float x1, char* mode) {
 	}
 	return 0;
 }
+/** return width based on mode in char string */
 float width(float ws, char* mode) {
 	if(strcmp(mode, "edge") == 0) {
 		return ws * 2.0;
@@ -90,7 +93,7 @@ DEFINE_PROFILE( velocity, t, equation )
 	/* set profile */
 	begin_f_loop( f, t )
 	{
-		F_CENTROID( v, f, t );
+		F_CENTROID(v, f, t);
 		
 		x = v[0] - xc;
 		z = v[2] - zc;
