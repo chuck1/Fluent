@@ -6,7 +6,7 @@
 #include "src/reports.h"
 
 
-void heat_xfer_coeff(Thread *t, float *point, float temp_target) {
+void heat_xfer_coeff(Thread *t, real *point, real temp_target) {
 
 	/* measure temperature at point */
 	temp = point_measure(t, point, temperature);
@@ -26,9 +26,9 @@ DEFINE_PROFILE(heat_xfer_coeff1, t, equation)
 	 * point
 	 */
 	
-	float temp_target = RP_Get_Real("HTC1_T");
+	real temp_target = RP_Get_Real("HTC1_T");
 	
-	float point[3];
+	real point[3];
 	
 	point[0] = RP_Get_Real("HTC1_x");
 	point[1] = RP_Get_Real("HTC1_y");

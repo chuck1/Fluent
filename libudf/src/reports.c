@@ -5,10 +5,29 @@
 #include "mymath.h"
 #include "reports.h"
 
+void		index_min(real *v, int n) {
+	real minv = 1E37;
+	int mini = 0;
+
+	int i = 0;
+	for(; i < n; ++i) {
+		if(v[i] < minv) {
+			minv = v[i];
+			mini = i;
+		}
+	}
+	return mini;
+}
 void		infinity(real *v, int n) {
 	int i = 0;
 	for(; i < n; ++i) {
 		v[i] = 1E37;
+	}
+}
+void		zero(real *v, int n) {
+	int i = 0;
+	for(; i < n; ++i) {
+		v[i] = 0;
 	}
 }
 
@@ -18,35 +37,39 @@ float		temperature(Thread *t, face_t f) {
 float		point_measure(Thread *tf, real NV_VEC(point), face_func func) {
 	face_t f;
 	
-	real NV_VEC(v), NV_VEC(d), value;
-	
+	/* variables */
+	real NV_VEC(v), NV_VEC(d), distance, value;
 	real distances[compute_node_count];
-	real temperatures[compute_node_count];
-	infinity(distances, compute_node_count);
+	real values[compute_node_count];
+	real iwork[compute_node_count];
 	
-	int found = 0;
-
+	/* initialize arrays */
+	infinity(distances, compute_node_count);
+	zero(values, compute_node_count);
+	
 	begin_f_loop(f,tf) {
 		if PRINCIPAL_FACE_P(f,tf) {
 			F_CENTROID(v,f,tf);
 			
 			NV_DD(d,=,v,-,point)
 			
-			/*d = distance(v, point, 3);*/
+			distance = NV_MAG(d);
 
-			if(d < dist) {
-				value = func(t,f);
-				dist = d;
-				found = 1;
+			/*d = distance(v, point, 3);*/
+			
+			if(distance < distances[myid]) {
+				values[myid] = func(t,f);
+				distances[myid] = distance;
 			}
 		}
 	} end_f_loop(f,tf)
 
-	if(found == 0) {
-		printf("ERROR! POINT EMASURE FAILED!\n");
-	}
-
-	return value;
+	distances = PRF_GRMIN(distances, compute_node_count, iwork);
+	values = PRF_GRSUM(distances, compute_node_count, iwork);
+	
+	int i = index_min(distanes, compute_node_count);
+	
+	return values[i];
 }
 float		area_weighted_average(Thread *t, face_func func) {
 	face_t f;
