@@ -5,7 +5,7 @@
 #include "mymath.h"
 #include "reports.h"
 
-void		index_min(real *v, int n) {
+real		index_min(real *v, int n) {
 	real minv = 1E37;
 	int mini = 0;
 
